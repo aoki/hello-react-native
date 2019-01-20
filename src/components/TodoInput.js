@@ -9,6 +9,8 @@ import {
   Alert
 } from "react-native";
 
+import ButtonComponent, { CircleButton, RoundButton, RectangleButton } from 'react-native-button-component';
+
 export default class TodoInput extends Component {
   onPressAddTodo() {
     Alert.alert("AddTodo Button was Pushed");
@@ -18,9 +20,12 @@ export default class TodoInput extends Component {
     return (
       <View style={styles.container}>
         <TextInput style={styles.textInput}/>
-        {/* <TouchableOpacity> */}
-          <Text onPress={this.onPressAddTodo} style={styles.button}> Add</Text>
-        {/* </TouchableOpacity> */}
+        <ButtonComponent
+          onPress={this.onPressAddTodo}
+          style={styles.button}
+          text="Add"
+          height={32}
+        ></ButtonComponent>
       </View>
     );
   }
@@ -31,7 +36,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'blue',
     margin: 32,
-    height: 100
   },
   textInput: {
     flex: 4,
